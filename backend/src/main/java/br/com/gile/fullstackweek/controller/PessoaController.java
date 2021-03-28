@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pessoas")
-@CrossOrigin(origins = {"http://localhost:3000"})
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:19006"})
 public class PessoaController {
 
     @Autowired
@@ -22,6 +22,7 @@ public class PessoaController {
 
     @PostMapping
     public Pessoa cadastrarPessoa(@RequestBody Pessoa pessoa){
+        pessoa.setIsVacinada(false);
         return repository.save(pessoa);
     }
 
